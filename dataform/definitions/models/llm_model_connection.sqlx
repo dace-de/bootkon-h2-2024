@@ -1,0 +1,16 @@
+--- After the configurations is set up we use a BigQuery function to CREATE a new model by 
+---- referencing the connection we set up in the preparation and adding a remote _service_type in the options section.
+  ---  reference: https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model-service 
+  ---You can create a remote model over a Vertex AI LLM by specifying the REMOTE_SERVICE_TYPE value as 'CLOUD_AI_LARGE_LANGUAGE_MODEL_V1' for the text-bison model or
+  ---- 'CLOUD_AI_TEXT_EMBEDDING_MODEL_V1' for the textembedding-gecko model. However, the preferred method for creating a remote model over an LLM is 
+  ----to specify the LLM as an endpoint instead. Using an endpoint gives you more options in terms of the LLMs and LLM versions that you use.
+
+
+config {
+  type: "operations",
+  dependencies: ["create_dataset"]
+}
+
+CREATE OR REPLACE MODEL ulb_fraud_detection_llm.ulb_fraud_detection_llm_model
+  REMOTE WITH CONNECTION `us.llm-connection`
+  OPTIONS (ENDPOINT = 'gemini-pro');

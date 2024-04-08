@@ -1,0 +1,13 @@
+---we have create_dataset.sqlx where we just perform a CREATE SCHEMA operation. 
+---This operation creates a dataset entity where we can store our model connection separately from the data.
+--- Foundation models on Vertex AI : https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models
+config {
+    type : "operations",
+  tags: ["dataset_ulb_fraud_detection_llm"]
+}
+
+CREATE SCHEMA IF NOT EXISTS ulb_fraud_detection_llm
+  OPTIONS (
+    description = 'Dataset to store LLM models used for LLM usecases_01',
+    location = 'US'
+  )

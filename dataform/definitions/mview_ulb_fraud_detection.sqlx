@@ -1,0 +1,12 @@
+config {
+  type: "view",
+  materialized: true,
+  tags: ["mview-ulb_fraud_detection"]
+}
+SELECT 
+count(*) as count,
+Class,
+Feedback
+from   ${ref("ulb_fraud_detection")}
+group by Class,
+Feedback

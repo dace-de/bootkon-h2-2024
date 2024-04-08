@@ -1,0 +1,6 @@
+config {
+  type: "declaration",
+  database: "genai-demo-2024",
+  schema: "ml_datasets",
+  name: "ulb_fraud_detection"
+}

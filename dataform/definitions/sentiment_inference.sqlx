@@ -1,0 +1,36 @@
+---Config: we set type to table and add a dependency to the llm_model_connection step so we know it is connected before running the inference.
+---SELECT: I chose to select everything expect ml_generate_text_status from the reponse back from the ML.GENERATE_TEXT function. I also added a regexp expression here to highlight the fact that you are able add this to a possible reponse in natural language as a formatting function to get at response you would like in the created table.
+----FROM: ML.GENERATE_TEXT is the build in function that we should use to run inference on one of our LLMs in Vertex AI. In the function we first reference the model to use `llm_model.llm_vertex_model` and then add a SELECT statement to both package the prompt to use but also if we want to get back other columns from the staging_data table. In my case here I add reviewer_rating and orginal_review.
+---PROMPTING: Prompting is done in a way where you concatenate a defined column and its values with a written prompt in the SELECT statement. In my case here I structured a prompt like this:
+---The actual review is then added to the prompt above and used to do inference for each record in BigQuery and generates a request to our model in Vertex AI for all the selected rows/records.
+---STRUCT: The last part of the ML.GENERATE_TEXT function is a STRUCT statement where you can add some options to your inference request to the model. I added som parameters such as temperature, max_output_tokens and flatten_json_output to my request.
+--- https://cloud.google.com/bigquery/docs/generate-text Generate text by using the ML.GENERATE_TEXT function
+config { 
+    type: "table" ,
+    dependencies: [ "llm_model_connection" ]
+}
+
+SELECT
+    REGEXP_REPLACE(ml_generate_text_llm_result, ' ', '') AS ml_generate_text_llm_result, 
+    * EXCEPT (ml_generate_text_llm_result, ml_generate_text_status)
+FROM
+  ML.GENERATE_TEXT(
+    MODEL `ulb_fraud_detection_llm.ulb_fraud_detection_llm_model`,
+    (
+  SELECT
+        CONCAT('''Tell me whether the following feedback sentiment is positive or negative or neutral. 
+        - Use only the words positive, negative and neutral. 
+        - Remove all spaces in the response. 
+        - Answer in lower letters.
+        Transaction Feedback:
+        ''', 
+        Feedback
+        )
+        AS prompt, 
+        Feedback as Feedback
+        FROM ${ref('mview_ulb_fraud_detection')}
+    ),
+    STRUCT(
+      0.1 AS temperature,
+      20 AS max_output_tokens,
+      TRUE AS flatten_json_output))

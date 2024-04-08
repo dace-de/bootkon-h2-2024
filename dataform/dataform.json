@@ -1,0 +1,8 @@
+{
+  "defaultSchema": "ml_datasets",
+  "assertionSchema": "dataform_assertions",
+  "warehouse": "bigquery",
+  "defaultDatabase": "genai-demo-2024",
+  "defaultLocation": "US"
+}
+    
