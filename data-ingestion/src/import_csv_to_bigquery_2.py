@@ -9,11 +9,11 @@ import os
 
 # Google Cloud credentials and project details
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/path/to/your/credentials.json'
-project_id = "genai-demo-2024"
+project_id = "your-project-id"
 topic_id = "my_fraud_detection-topic"
-bucket_name = "hackathon-dace-de"
-csv_folder_path = "data-csv/ulb_fraud_detection_with_feedback/"  # Folder in GCS where CSV files are stored
-schema_file_path = "scripts/my_avro_fraud_detection_schema.json"  # Path to schema file in GCS
+bucket_name = "your-project-id-bucket"
+csv_folder_path = "data-ingestion/csv/ulb_fraud_detection/"
+schema_file_path = "data-ingestion/src/my_avro_fraud_detection_schema.json"
 
 # Initialize Cloud Storage client
 storage_client = storage.Client()

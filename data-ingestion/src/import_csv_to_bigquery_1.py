@@ -9,11 +9,11 @@ import os
 
 
 # Set Google Cloud credentials and project details
-project_id = "genai-demo-2024"
+project_id = "your-project-id"
 topic_id = "my_fraud_detection-topic"
-bucket_name = "hackathon-dace-de"
-csv_folder_path = "data-csv/ulb_fraud_detection_with_feedback/"
-schema_file_path = "scripts/my_avro_fraud_detection_schema.json"
+bucket_name = "your-project-id-bucket"
+csv_folder_path = "data-ingestion/csv/ulb_fraud_detection/"
+schema_file_path = "data-ingestion/src/my_avro_fraud_detection_schema.json"
 
 
 # Initialize Cloud Storage client and get the bucket
