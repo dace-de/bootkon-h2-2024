@@ -13,6 +13,7 @@ gcs_parquet_path = "gs://"your-project-id"-bucket/data-ingestion/parquet/ulb_fra
 bq_dataset_name = "ml_datasets"
 bq_table_name = "ulb_fraud_detection_parquet"
 
+temporary_gcs_bucket = ""your-project-id"-bucket"
 
 # Create a SparkSession
 spark = SparkSession.builder\
@@ -27,6 +28,7 @@ df = spark.read.parquet(gcs_parquet_path)
 # Write DataFrame to BigQuery
 df.write.format("bigquery") \
     .option("table", f"{project_id}:{bq_dataset_name}.{bq_table_name}") \
+    .option("temporaryGcsBucket", temporary_gcs_bucket) \
     .mode("overwrite") \
     .save()
 
