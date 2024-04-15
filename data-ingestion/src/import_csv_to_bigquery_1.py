@@ -9,6 +9,8 @@ import os
 
 
 # Set Google Cloud credentials and project details
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '<service key json location>/service-key.json'
+
 project_id = "your-project-id"
 topic_id = "my_fraud_detection-topic"
 bucket_name = "your-project-id-bucket"
