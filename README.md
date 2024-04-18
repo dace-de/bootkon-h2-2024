@@ -1,6 +1,6 @@
 # Bookon
 
-![](image.png)
+![]([image.png](https://github.com/dace-de/bootkon-h2-2024/blob/main/architecture.png))
 
 
 ## Data Sources
