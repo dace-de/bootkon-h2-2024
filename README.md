@@ -1,8 +1,7 @@
 # Bookon
 
-![]([image.png](https://github.com/dace-de/bootkon-h2-2024/blob/main/architecture.png))
 
-
+![alt text](https://github.com/dace-de/bootkon-h2-2024/blob/main/architecture.png) "Title") 
 ## Data Sources
 
 You’ll start by working with raw data that comes in different formats (csv , parquets). 
