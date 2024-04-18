@@ -36,4 +36,4 @@ Throughout the event, you’ll be moving through these layers, using each tool t
 
 ## Cost 
 
-If you are using your GCP environment, running all labs will cost you around 200$ / month.
+Running all labs will cost you around 200$ / month.
