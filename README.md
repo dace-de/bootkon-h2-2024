@@ -1,19 +1,35 @@
-# FraudFlix Technologies
+# Bookon
 
-## Use Case Introduction
+## Data Sources
 
-FraudFlix Technologies stands at the forefront of enhancing the safety of financial transactions. At the heart of its innovation, the company harnesses the power of machine learning to sift through vast amounts of transaction data, enabling the detection and prevention of fraud in real-time. Furthermore, FraudFlix extends its machine learning capabilities to assess customer sentiment and the quality of transaction services. Originating from a unique combination of a Bootcamp and Hackathon, termed a “bootkon,” FraudFlix utilizes a specialized dataset of European credit card transactions as the foundation for training its sophisticated algorithms. This initiative offers data engineers and scientists a compelling arena where the integration of GCP Data & AI technologies and financial security converges, illustrating the tangible impacts of their expertise in addressing real-world challenges.
+You’ll start by working with raw data that comes in different formats (csv , parquets). 
+Those data files are stored in a github repository  https://github.com/dace-de/bootkon-h2-2024  
+Your first task is to store the raw data into your Google Cloud Storage (GCS) bucket.
 
-## About the Data
+## Data Ingestion Layer
 
-The dataset encompasses credit card transactions made by European cardholders in September 2013, encapsulating activities over two days. Within this period, 492 out of 284,807 transactions were identified as fraudulent, marking a significant imbalance as frauds represent merely 0.172% of the total transactions—a critical aspect for testing in analytical notebooks. The dataset primarily consists of numeric input variables derived from a PCA (Principal Component Analysis) transformation, preserving confidentiality by excluding original features and detailed background information.
+You will bring this data into your BigQuery AI Lakehouse environment. 
+For batch data, you’ll use Dataproc Serverless and BigLake. 
+For near real-time data, you’ll use Pub/Sub to handle data as it comes in. 
+Because we want to simulate data ingestion at scale, we will be using the raw data that you have stored in GCS to simulate both batch and real time ingestion.
+These tools help you get the data ready for processing and analysis.
 
-### Key Features:
 
-- **V1, V2, ... V28**: Principal components obtained through PCA, constituting the transformed features.
-- **Time**: Measures the seconds elapsed between consecutive transactions from the first transaction in the dataset.
-- **Amount**: Indicates the transaction amount, which can be instrumental for example-dependent cost-sensitive learning.
-- **Class**: Serves as the response variable, where a value of 1 denotes fraud and 0 indicates a legitimate transaction.
-- **Feedback**: Reflects customer feedback on service quality post-transaction, an attribute specially added to the original dataset.
+## BigQuery AI Lakehouse
 
-This dataset was curated and analyzed through a research collaboration between Worldline and the Machine Learning Group ([MLG](http://mlg.ulb.ac.be)) of ULB (Université Libre de Bruxelles), focusing on big data mining and fraud detection. Further insights into ongoing and prior projects related to these domains can be found [here](http://mlg.ulb.ac.be).
+Think of this as the main camp where all your data hangs out. It’s a place that uses BigQuery, and it’s designed to work with different types of data, whether it’s structured neatly in tables or unstructured like a pile of text documents. Here, you can run different data operations without moving data around.
+
+## Data Governance Layer
+
+This is where you ensure that your data is clean, secure, and used properly. Using Dataplex, you’ll set rules and checks to maintain data quality and governance.
+
+## Consumption Layer
+
+Once you have your insights, you’ll use tools like Vertex AI for machine learning tasks and Looker Studio for creating reports and dashboards. This is where you turn data into something valuable, like detecting fraud or understanding customer sentiment.
+Your goal is to share the results of your data predictions to your customers in a secure and private way. You will be using Analytics Hub for data sharing.
+
+Throughout the event, you’ll be moving through these layers, using each tool to prepare, analyze, and draw insights from the data. You’ll see how they all connect to make a complete data analytics workflow on the cloud.
+
+## Cost 
+
+If you are using your GCP environment, running all labs will cost you around 200$ / month.
