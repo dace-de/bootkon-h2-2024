@@ -38,6 +38,7 @@ Throughout the event, you’ll be moving through these layers, using each tool t
 
 Running all labs will cost you around 200$ / month.
 
-Author: Wissem Khlifi
 
-Linkedin: https://www.linkedin.com/in/orawiss/ 
+## Author: Wissem Khlifi
+
+Linkedin : https://www.linkedin.com/in/orawiss/ 
