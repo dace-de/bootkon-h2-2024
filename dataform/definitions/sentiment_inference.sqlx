@@ -1,3 +1,4 @@
+--- Author: Wissem Khlifi
 ---Config: we set type to table and add a dependency to the llm_model_connection step so we know it is connected before running the inference.
 ---SELECT: I chose to select everything expect ml_generate_text_status from the reponse back from the ML.GENERATE_TEXT function. I also added a regexp expression here to highlight the fact that you are able add this to a possible reponse in natural language as a formatting function to get at response you would like in the created table.
 ----FROM: ML.GENERATE_TEXT is the build in function that we should use to run inference on one of our LLMs in Vertex AI. In the function we first reference the model to use `llm_model.llm_vertex_model` and then add a SELECT statement to both package the prompt to use but also if we want to get back other columns from the staging_data table. In my case here I add reviewer_rating and orginal_review.

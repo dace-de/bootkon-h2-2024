@@ -1,3 +1,4 @@
+--- Author: Wissem Khlifi
 --- After the configurations is set up we use a BigQuery function to CREATE a new model by 
 ---- referencing the connection we set up in the preparation and adding a remote _service_type in the options section.
   ---  reference: https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model-service 

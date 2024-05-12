@@ -1,3 +1,4 @@
+--- Author: Wissem Khlifi
 config {
   type: "declaration",
   database: "genai-demo-2024",
