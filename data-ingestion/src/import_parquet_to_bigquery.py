@@ -7,14 +7,14 @@ project_id = "your-project-id"
 
 
 # GCS Path to Parquet Files
-gcs_parquet_path = "gs://"your-project-id"-bucket/data-ingestion/parquet/ulb_fraud_detection/"
+gcs_parquet_path = "gs://your-project-id-bucket/data-ingestion/parquet/ulb_fraud_detection/"
 
 
 # BigQuery Dataset and Table Name
 bq_dataset_name = "ml_datasets"
 bq_table_name = "ulb_fraud_detection_parquet"
 
-temporary_gcs_bucket = ""your-project-id"-bucket"
+temporary_gcs_bucket = "your-project-id-bucket"
 
 # Create a SparkSession
 spark = SparkSession.builder\
