@@ -41,6 +41,10 @@ Running all labs will cost you around 200$ / month.
 ## Caution
 CAUTION: This lab is for educational purposes only and should be used with caution in production environments. Google Cloud Platform (GCP) products are changing frequently, and screenshots and instructions might become inaccurate over time. Always refer to the latest GCP documentation for the most up-to-date information.
 
+## Feedback
+
+If you have any feedback or issues, please open an issue in this repository or contact the repository maintainers.
+
 ### Author: Wissem Khlifi
 
 Linkedin : https://www.linkedin.com/in/orawiss/ 
