@@ -38,6 +38,8 @@ Throughout the event, you’ll be moving through these layers, using each tool t
 
 Running all labs will cost you around 200$ / month.
 
+## Caution
+CAUTION: This lab is for educational purposes only and should be used with caution in production environments. Google Cloud Platform (GCP) products are changing frequently, and screenshots and instructions might become inaccurate over time. Always refer to the latest GCP documentation for the most up-to-date information.
 
 ### Author: Wissem Khlifi
 
